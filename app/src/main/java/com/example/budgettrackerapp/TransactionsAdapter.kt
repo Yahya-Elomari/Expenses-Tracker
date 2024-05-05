@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.math.abs
 
-class TransactionsAdapter(private val transactions : ArrayList<Transaction>) :
+class TransactionsAdapter(private var transactions : List<Transaction>) :
     RecyclerView.Adapter<TransactionsAdapter.TransactionViewHolder>() {
     class TransactionViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val name : TextView = view.findViewById(R.id.transaction_name)
@@ -35,5 +35,9 @@ class TransactionsAdapter(private val transactions : ArrayList<Transaction>) :
             holder.amount.text = "- $%.2f".format(abs(transaction.amount))
             holder.amount.setTextColor(ContextCompat.getColor(context, R.color.red))
         }
+    }
+    fun setData(transactions:List<Transaction>){
+        this.transactions = transactions
+        notifyDataSetChanged()
     }
 }
