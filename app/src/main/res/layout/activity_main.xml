@@ -114,7 +114,4 @@
         android:layout_margin="15dp"
         app:borderWidth="0dp"/>
 
-
-
-
 </RelativeLayout>
